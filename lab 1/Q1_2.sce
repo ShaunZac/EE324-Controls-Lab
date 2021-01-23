@@ -1,0 +1,17 @@
+s = poly(0, 's');
+G1 = syslin('c', 10 / (s^2 + 2*s + 10));
+G2 = syslin('c', 5 / (s + 5));
+cascade = G1 * G2;
+parallel = G1 + G2;
+feedback = G1/(1 + G1*G2);
+t=0:0.05:50;
+G1_step_resp = csim('step', t, G1);
+plot2d(t, G1_step_resp);
+xlabel('t');
+ylabel('Unit Step Response');
+cascade_roots = roots(cascade.num);
+cascade_poles = roots(cascade.den);
+parallel_roots = roots(parallel.num);
+parallel_poles = roots(parallel.den);
+feedback_roots = roots(feedback.num);
+feedback_poles = roots(feedback.den);
