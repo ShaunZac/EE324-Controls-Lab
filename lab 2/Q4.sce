@@ -15,3 +15,10 @@ plot2d(0:1:19, disc_resp);
 title("Step Response");
 xlabel("Amplitude");
 ylabel("n");
+
+show_window(2);
+direct_resp = csim('step', t, 1/s);
+plot2d(t, direct_resp);
+title("Step Response Direct");
+xlabel("Amplitude");
+ylabel("time (seconds)");
