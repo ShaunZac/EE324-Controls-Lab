@@ -4,6 +4,8 @@ C2 = tf([1, 1], [1, 3]);
 G_lag = G*C1;
 G_lead = G*C2;
 nyquist(G, G_lag, G_lead);
+xlim([-3, 0.5]);
+ylim([-3, 3]);
 legend
 figure;
 margin(G);
